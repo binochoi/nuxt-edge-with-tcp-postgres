@@ -1,0 +1,33 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "run-s build.*",
+    "build.execute": "nuxt build",
+    "build.worker-nitro-hack": "cat workerd_export.js >> ./dist/worker/index.js",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "wrangler dev",
+    "postinstall": "nuxt prepare",
+    "deploy": "pnpm run build && wrangler deploy",
+    "cf-typegen": "wrangler types"
+  },
+  "dependencies": {
+    "delay": "^6.0.0",
+    "drizzle-orm": "^0.31.2",
+    "npm-run-all": "^4.1.5",
+    "nuxt": "^3.13.2",
+    "postgres": "^3.4.5",
+    "vue": "^3.5.12",
+    "vue-router": "^4.4.5"
+  },
+  "packageManager": "pnpm@9.6.0+sha512.38dc6fba8dba35b39340b9700112c2fe1e12f10b17134715a4aa98ccf7bb035e76fd981cf0bb384dfa98f8d6af5481c2bef2f4266a24bfa20c34eb7147ce0b5e",
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20241022.0",
+    "h3": "^1.13.0",
+    "nitro-cloudflare-dev": "^0.2.1",
+    "nitropack": "^2.9.7",
+    "wrangler": "^3.83.0"
+  }
+}
